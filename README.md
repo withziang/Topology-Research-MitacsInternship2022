@@ -6,7 +6,7 @@ This includes:
 
 - the main paper
 
-- python code\
+- python code
   
 - powerpoint of the two seminars i did
 
