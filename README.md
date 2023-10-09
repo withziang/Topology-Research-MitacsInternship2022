@@ -1,6 +1,6 @@
 # topology
 
-This repo is dedicated to store all the work I did during the 2022 summer internship. 
+This repo is dedicated to store all the work I did during the 2022 summer internship at Mitacs Inc 
 
 This includes: 
 
