@@ -1,0 +1,88 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsthm, amssymb}
+\newtheorem{mydef}{Definition}
+\newtheorem{prop}{Proposition}
+
+\begin{document}
+\begin{center}
+    \huge\textbf{Determinant} \\[10pt]
+    \large\textit{Z.W}  \\[20pt]
+\end{center}
+\section{Permutation}
+\begin{mydef}\label{def:def444}
+Let $S$ be a set and $\{S\}=\{a_1,a_2,...,a_n\}$, the permutation of this set is a reordering of this set. It is quite obvious to see that permutation of a set is not unique. One permutation of $S$ can be mathematically represented as 
+$$\sigma : \{a_1,a_2,...,a_n\} \longrightarrow \{\sigma(a_1),\sigma(a_1),...,\sigma(a_n)\}$$
+where  $\sigma(a_1)$ is any number in the set $S$, and when $i \geqslant 1$, $\sigma(a_i)$ is any element in the set $\{S \setminus(\bigcup_{k=1}^{i-1}\sigma(a_i))\}$.
+\\
+\newline Permutation of $S$ can also be represented by Cauchy's two line notation,
+$$\sigma= \large(\begin{smallmatrix}
+    a_1 & a_2 & a_3 & \cdots & c_{n-1} & c_n \\
+    \sigma(a_1) & \sigma(a_2) & \sigma(a_3) & \cdots &  \sigma(a_{n-1})  & \sigma(a_n)
+  \end{smallmatrix}\large)$$
+ Note: when it is $\sigma\{a,b,c\}$, $a,b,c$ denote the position of the permutation.\\[10pt]
+\end{mydef}
+
+\begin{mydef}\label{def:def444}
+Let $S$ be a set and $\{S\}=\{a_1,a_2,...,a_n\}$. Let $\sigma$ be a permutation of $S$. This permutation can be presented in the form of a matrix which is denoted by $[A_\sigma]_{n*n}$.
+\begin{equation}
+ \begin{cases}
+ (A_\sigma)_{ij}=1,\textbf{     } \textbf{  }\textbf{  }\textbf{  }if \textbf{  }i=\sigma(j). \\
+ (A_\sigma)_{ij}=0,\textbf{     } \textbf{  }\textbf{  }\textbf{  } if\textbf{  } i\neq \sigma(j).
+ \end{cases} 
+\end{equation}
+To have an intuition of this equation, a permutation matrix has only one emtry that is 1 in each column and row, the rest of the entries are just 0.
+\end{mydef}
+\begin{mydef}\label{def:def444}
+A transposition is a permutation that only interchange two elements and leave the rest fixed. For which, there are $i,j$ that
+\begin{equation}
+ \begin{cases}
+ \sigma(i)=j, \\
+ \sigma(j)=i, \\
+ \simga(k)=k, \hspace{1em} for \textbf{ } every  \textbf{ } k \neq i,j 
+ \end{cases} 
+\end{equation}
+
+\begin{prop}
+Every permutation can be written as a finite composition of transpositions. 
+\end{prop}
+Proof: Consider the reverse of the process. \\
+Let the set $S=\{a_1,a_2,...,a_n\}$ \\
+Denote  $$b_1=min\{a_1,a_2,...,a_n\}$$
+$$\cdots$$
+$$b_i=min(S\setminus(\bigcup_{k=1}^{i-1}\{b_k\}))$$
+$$\cdots$$
+$$b_n=min(S\setminus\{b_1,b_2,...,b_{n-1}\})$$
+Step 1 of the swiping process: transposition between $a_1$ and $b_1$, so $S$ becomes $$\{b_1,...,a_1,...,a_n\}, \hspace{2em} \text{if } b_1 \neq a_1$$
+or be $$\{b_1,a_2,...,a_n\}, \hspace{3em} \text{if } b_1 = a_1$$
+Do this process for n times, transposition between $a_i$ and $b_i$ and this is always well defined since $a_i$ and $b_i$ always exist in the set (axiom of choice).After the process, $S$ becomes $\{b1,b_2,...,b_n\}$. So any set can become an increasing order set only using transposition. The reverse of this process is also a composition of transposition also.\\
+$$\text{any set} \longrightarrow \text{increasing order permutation} 
+\longrightarrow \text{any set}$$
+So proven.\\
+Note: Transposition can be considered as an elementary permutation. If we denote each transposition as $\pi$, then every permutation can be written as $\sigma =\pi_1 \circ \pi_2 \circ ..... \circ \pi_k$. 
+\end{mydef}
+\begin{mydef}\label{def:def444}
+Let $S$ be a set and $\{S\}=\{a_1,a_2,...,a_n\}$. Let $\sigma$ be a permutation of $S$. The signature of this permutation is defined as 
+$$\varepsilon(\sigma)=\frac{\Pi_{1 \leq i<j \leq n }(x^{\sigma(i)}-x^{\sigma(j)})}{\Pi_{1 \leq i<j \leq n }(x^{i}-x^{j})}.$$
+This function sends set $\sigma(S)$ to $\{-1,1\}$
+\end{mydef}
+\newpage
+\begin{prop}
+If $\sigma$ is a transposition, $\varepsilon(\sigma)=-1$. \\
+Proof: \\
+Let $S$ be a set and $\{S\}=\{a_1,a_2,...,a_n\}$. Let $\sigma$ be a transposition between the element $a_p$ and $a_q$ for $p,q \in {1,2,3...,n}$. Without the lost of generality, we presume $p<q$.  \\
+So $$\varepsilon(\sigma)=\frac{
+[\Pi_{1 \leq i<j \leq n,}(x^{\sigma(i)}-x^{\sigma(j)})][\pi_{}]}
+{\Pi_{1 \leq i<j \leq n }(x^{i}-x^{j})}$$
+
+
+\end{prop}
+
+\begin{prop}
+For two transposition permutation $\sigma_1$ and $\sigma_2$,
+$$\varepsilon(\sigma_1 \circ \sigma_2)=\varepsilon(\sigma_1) \cdot \varepsilon(\sigma_2) $$ 
+Proof: \\
+
+\end{prop}
+
+\end{document}
